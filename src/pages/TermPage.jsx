@@ -1,9 +1,11 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
+import { Search, Cog, StickyNote, Lightbulb, ArrowLeft, ArrowRight } from 'lucide-react'
 import { getNeighbors, getTerm, TERMS } from '../data/terms'
 import Reveal from '../components/Reveal'
 import SplitText from '../components/SplitText'
 import Squiggle from '../components/Squiggle'
-import StickyNote from '../components/StickyNote'
+import StickyNoteEl from '../components/StickyNote'
+import TermIcon from '../components/TermIcon'
 import Footer from '../components/Footer'
 import './term.css'
 
@@ -33,7 +35,7 @@ export default function TermPage() {
             {term.number}
           </Reveal>
           <h1 className="term__title">
-            <span className="term__title-emoji" aria-hidden="true">{term.emoji}</span>{' '}
+            <TermIcon slug={term.slug} size={56} strokeWidth={2.1} className="term__title-icon" />{' '}
             <SplitText text={term.name} by="word" stagger={60} />
           </h1>
           <Reveal variant="up" delay={250} className="term__tags">
@@ -47,7 +49,7 @@ export default function TermPage() {
         <section className="term__section" aria-labelledby="zer-den">
           <Reveal variant="left">
             <h2 id="zer-den" className="term__h2">
-              <span aria-hidden="true">🧐</span> Zer den?
+              <Search size={30} strokeWidth={2.3} aria-hidden="true" /> Zer den?
             </h2>
           </Reveal>
           <Reveal variant="up" delay={120} className="sheet term__def tilt-l">
@@ -59,7 +61,7 @@ export default function TermPage() {
         <section className="term__section" aria-labelledby="nola">
           <Reveal variant="right">
             <h2 id="nola" className="term__h2">
-              <span aria-hidden="true">⚙️</span> Nola funtzionatzen du?
+              <Cog size={30} strokeWidth={2.3} aria-hidden="true" /> Nola funtzionatzen du?
             </h2>
           </Reveal>
 
@@ -77,18 +79,18 @@ export default function TermPage() {
         <section className="term__section" aria-labelledby="adibidea">
           <Reveal variant="up">
             <h2 id="adibidea" className="term__h2">
-              <span aria-hidden="true">📌</span> Adibidea
+              <StickyNote size={30} strokeWidth={2.3} aria-hidden="true" /> Adibidea
             </h2>
           </Reveal>
           <Reveal variant="pop" delay={150}>
-            <StickyNote title="Adibidea" tilt={term.number % 2 ? 'r' : 'l'}>
+            <StickyNoteEl title="Adibidea" tilt={term.number % 2 ? 'r' : 'l'}>
               <p>{term.example}</p>
-            </StickyNote>
+            </StickyNoteEl>
           </Reveal>
 
           <Reveal variant="up" delay={250} className="term__quick">
             <span className="chip" style={{ color: term.color }}>
-              💡 {term.quick}
+              <Lightbulb size={17} strokeWidth={2.4} aria-hidden="true" /> {term.quick}
             </span>
           </Reveal>
         </section>
@@ -97,7 +99,7 @@ export default function TermPage() {
         <nav className="term__pager" aria-label="Termino arteko nabigazioa">
           {prev ? (
             <Link to={`/erronka1/${prev.slug}`} className="pager-btn pager-btn--prev">
-              <span className="pager-btn__dir" aria-hidden="true">←</span>
+              <ArrowLeft size={24} strokeWidth={2.4} className="pager-btn__dir" aria-hidden="true" />
               <span>
                 <small>Aurrekoa</small>
                 <strong>{prev.name}</strong>
@@ -112,7 +114,7 @@ export default function TermPage() {
                 <small>Hurrengoa</small>
                 <strong>{next.name}</strong>
               </span>
-              <span className="pager-btn__dir" aria-hidden="true">→</span>
+              <ArrowRight size={24} strokeWidth={2.4} className="pager-btn__dir" aria-hidden="true" />
             </Link>
           ) : (
             <span />
@@ -130,7 +132,8 @@ export default function TermPage() {
                   className={`term__index-item ${t.slug === term.slug ? 'is-current' : ''}`}
                   style={{ '--c': t.color }}
                 >
-                  <span aria-hidden="true">{t.emoji}</span> {t.number}. {t.name}
+                  <TermIcon slug={t.slug} size={17} style={{ color: t.color }} />
+                  {t.number}. {t.name}
                 </Link>
               </li>
             ))}

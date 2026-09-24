@@ -36,7 +36,17 @@ export default function Loader({ duration = 1600, onLeaveStart, onDone }) {
             />
           </svg>
           <span className="loader__pencil" style={{ offsetPath: `path('${WRITE_PATH}')` }}>
-            ✏️
+            {/* Arkatz eskuz marraztua: punta behe-ezkerantz */}
+            <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+              <g transform="rotate(45 16 16)">
+                <path d="M2 16 L10 11.5 L10 20.5 Z" fill="#e8b06a" stroke="#33304a" strokeWidth="1.6" strokeLinejoin="round" />
+                <path d="M2 16 L5.5 14.2 L5.5 17.8 Z" fill="#33304a" />
+                <rect x="10" y="11.5" width="15" height="9" fill="#f0c94a" stroke="#33304a" strokeWidth="1.6" />
+                <line x1="10" y1="16" x2="25" y2="16" stroke="#e0a92f" strokeWidth="1.6" />
+                <rect x="25" y="11.5" width="2.5" height="9" fill="#c9cdd6" stroke="#33304a" strokeWidth="1.4" />
+                <rect x="27.5" y="11.5" width="3.2" height="9" rx="1.4" fill="#f3b9b9" stroke="#33304a" strokeWidth="1.4" />
+              </g>
+            </svg>
           </span>
         </div>
         <p className="loader__text">

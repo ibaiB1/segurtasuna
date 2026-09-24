@@ -25,12 +25,21 @@
 }
 
 .navbar__brand-icon {
-  font-size: 1.5rem;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .navbar__brand:hover .navbar__brand-icon {
   transform: rotate(-14deg) scale(1.15);
+}
+
+.navbar__brand-icon svg {
+  width: 26px;
+  height: 26px;
+  stroke-width: 2.2;
 }
 
 .navbar__brand-text {
@@ -52,6 +61,9 @@
 
 .navbar__tab {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
   font-family: var(--font-title);
   font-size: 1.35rem;
   font-weight: 600;
@@ -79,9 +91,14 @@
 }
 
 .navbar__caret {
-  display: inline-block;
-  font-size: 0.85em;
+  display: inline-flex;
+  flex: none;
   transition: transform 0.25s ease;
+}
+
+.navbar__caret svg {
+  width: 18px;
+  height: 18px;
 }
 
 .navbar__group.is-open .navbar__caret {
@@ -90,6 +107,10 @@
 
 .navbar__tab--btn {
   cursor: pointer;
+}
+
+.navbar__drop-icon {
+  flex: none;
 }
 
 .navbar__tab--soon {

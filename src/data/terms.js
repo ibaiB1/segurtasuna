@@ -22,7 +22,6 @@ export const TERMS = [
     number: 1,
     name: 'Phishinga',
     tag: 'Iruzur digitala',
-    emoji: '🎣',
     color: 'var(--red)',
     cardIntro: 'Erasotzaileak erakunde fidagarri baten itxura hartzen du zure datuak lapurtzeko.',
     definition:
@@ -41,7 +40,6 @@ export const TERMS = [
     number: 2,
     name: 'Birusak',
     tag: 'Malware zaharra',
-    emoji: '🦠',
     color: 'var(--orange)',
     cardIntro: 'Kode maltzurra fitxategietan ezkutatuta: zuk irekitzen duzunean pizten da.',
     definition:
@@ -60,7 +58,6 @@ export const TERMS = [
     number: 3,
     name: 'Troiarrak',
     tag: 'Malware engainagarria',
-    emoji: '🐴',
     color: 'var(--purple)',
     cardIntro: 'Doako programa itxura duen malwarea — zuk berak instalatzen duzu.',
     definition:
@@ -80,7 +77,6 @@ export const TERMS = [
     number: 4,
     name: 'Backdoorrak',
     tag: 'Sarbide ezkutua',
-    emoji: '🚪',
     color: 'var(--teal)',
     cardIntro: 'Ate ezkutua zure sisteman: urrutitik sartu eta kontrolatzeko.',
     definition:
@@ -99,7 +95,6 @@ export const TERMS = [
     number: 5,
     name: 'Spywarea',
     tag: 'Zaintza softwarea',
-    emoji: '🕵️',
     color: 'var(--blue)',
     cardIntro: 'Zure jarduera isilean erregistratzen du eta hirugarren bati bidaltzen dio.',
     definition:
@@ -118,7 +113,6 @@ export const TERMS = [
     number: 6,
     name: 'Stealerrak',
     tag: 'Informazio-lapurrak',
-    emoji: '💳',
     color: 'var(--pink)',
     cardIntro: 'Pasahitzak, cookieak eta kriptomoneta-zorroak lapurtzen ditu.',
     definition:

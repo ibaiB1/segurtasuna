@@ -207,9 +207,55 @@ h1, h2, h3, h4 {
   padding-bottom: 0.15em;
 }
 
-/* Xafla apaingarrien errotazio txikiak */
-.tilt-l { transform: rotate(-1.2deg); }
-.tilt-r { transform: rotate(1deg); }
+/* Xafla apaingarrien errotazio txikiak
+   ('rotate' propiatezkoa: reveal-en transform-arekin GATAZKATZEN EZ duen) */
+.tilt-l { rotate: -1.2deg; }
+.tilt-r { rotate: 1deg; }
+
+/* Testu barruko ikono txikiak */
+.inline-icon {
+  vertical-align: -0.18em;
+  margin-inline-end: 0.2em;
+}
+
+/* ---------- Ikono animatuak ---------- */
+.icon-pulse {
+  animation: icon-pulse 2.6s ease-in-out infinite;
+}
+
+.icon-sway {
+  transform-origin: 50% 90%;
+  animation: icon-sway 3.4s ease-in-out infinite;
+}
+
+.icon-bounce {
+  animation: icon-bounce-y 1.7s ease-in-out infinite;
+}
+
+@keyframes icon-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.14); }
+}
+
+@keyframes icon-sway {
+  0%, 100% { transform: rotate(-7deg); }
+  50% { transform: rotate(7deg); }
+}
+
+@keyframes icon-bounce-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+@keyframes icon-wiggle {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-9deg); }
+  60% { transform: rotate(8deg); }
+}
+
+@keyframes icon-spin {
+  to { transform: rotate(360deg); }
+}
 
 /* Tag/chip */
 .chip {

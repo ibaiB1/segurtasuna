@@ -15,7 +15,9 @@
 
 .footer__doodle {
   color: var(--ink-faint);
-  letter-spacing: 0.4em;
+  display: inline-flex;
+  gap: 0.5em;
+  justify-content: center;
 }
 
 .footer__meta {

@@ -6,7 +6,7 @@
 /* ---------- Breadcrumb ---------- */
 .term__crumbs {
   font-size: 1.05rem;
-  color: var(--ink-faint);
+  color: var(--ink-soft);
   margin-bottom: 2.2rem;
 }
 
@@ -29,7 +29,8 @@
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translateX(-50%) rotate(-8deg);
+  translate: -50% 0;
+  rotate: -8deg;
   display: grid;
   place-items: center;
   width: 64px;
@@ -50,9 +51,11 @@
   padding-top: 2.6rem;
 }
 
-.term__title-emoji {
+.term__title-icon {
   display: inline-block;
-  animation: emoji-wiggle 3.2s ease-in-out infinite;
+  vertical-align: -0.08em;
+  color: var(--term-color);
+  animation: icon-wiggle 3.2s ease-in-out infinite;
 }
 
 @keyframes emoji-wiggle {
@@ -96,6 +99,10 @@
   display: flex;
   align-items: center;
   gap: 0.4em;
+}
+
+.term__h2 svg {
+  color: var(--term-color);
 }
 
 .term__def {
@@ -162,6 +169,12 @@
   text-align: center;
 }
 
+.term__quick .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
 /* ---------- Pager ---------- */
 .term__pager {
   margin-top: 4rem;
@@ -204,8 +217,13 @@
 }
 
 .pager-btn__dir {
-  font-size: 1.6rem;
+  display: inline-flex;
   color: var(--term-color);
+}
+
+.pager-btn__dir svg {
+  width: 24px;
+  height: 24px;
 }
 
 /* ---------- Aurkibidea ---------- */

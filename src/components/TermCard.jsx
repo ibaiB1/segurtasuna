@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
 import Reveal from './Reveal'
+import TermIcon from './TermIcon'
 import './term-card.css'
 
 /**
@@ -14,12 +16,14 @@ export default function TermCard({ term, index = 0 }) {
         style={{ '--term-color': term.color }}
       >
         <span className="term-card__number" aria-hidden="true">{term.number}</span>
-        <span className="term-card__emoji" aria-hidden="true">{term.emoji}</span>
+        <span className="term-card__icon" aria-hidden="true">
+          <TermIcon slug={term.slug} size={44} />
+        </span>
         <h3 className="term-card__name">{term.name}</h3>
         <span className="term-card__tag">{term.tag}</span>
         <p className="term-card__intro">{term.cardIntro}</p>
         <span className="term-card__cta">
-          Irakurri <i aria-hidden="true">→</i>
+          Irakurri <ArrowRight size={22} strokeWidth={2.4} aria-hidden="true" />
         </span>
       </Link>
     </Reveal>

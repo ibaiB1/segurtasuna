@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Pencil, ChevronDown } from 'lucide-react'
 import { TERMS } from '../data/terms'
+import TermIcon from './TermIcon'
 import './navbar.css'
 
 export default function Navbar() {
@@ -38,7 +40,9 @@ export default function Navbar() {
     <header className="navbar">
       <div className="container navbar__inner">
         <Link to="/" className="navbar__brand">
-          <span className="navbar__brand-icon" aria-hidden="true">✏️</span>
+          <span className="navbar__brand-icon" aria-hidden="true">
+            <Pencil size={26} strokeWidth={2.2} />
+          </span>
           <span className="navbar__brand-text">
             Segurtasuna<span className="navbar__brand-dot">.</span>
           </span>
@@ -75,7 +79,7 @@ export default function Navbar() {
               onClick={() => setDropdownOpen((v) => !v)}
               aria-expanded={dropdownOpen}
             >
-              Erronka 1 <span className="navbar__caret" aria-hidden="true">▾</span>
+              Erronka 1 <ChevronDown className="navbar__caret" size={18} strokeWidth={2.4} aria-hidden="true" />
             </button>
 
             <div className="navbar__dropdown" role="menu">
@@ -88,7 +92,7 @@ export default function Navbar() {
                     `navbar__drop-item ${isActive ? 'is-active' : ''}`
                   }
                 >
-                  <span className="navbar__drop-emoji" aria-hidden="true">{t.emoji}</span>
+                  <TermIcon slug={t.slug} size={22} className="navbar__drop-icon" style={{ color: t.color }} />
                   <span className="navbar__drop-name">{t.name}</span>
                   <span className="navbar__drop-num" aria-hidden="true">{t.number}</span>
                 </NavLink>

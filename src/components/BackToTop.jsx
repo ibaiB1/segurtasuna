@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
+import { ArrowUp } from 'lucide-react'
 import './back-to-top.css'
 
 /**
- * Goora itzultzeko botoia (arkatz gezia).
+ * Goora itzultzeko botoia.
  */
 export default function BackToTop() {
   const [visible, setVisible] = useState(false)
@@ -22,7 +23,7 @@ export default function BackToTop() {
       aria-label="Goora itzuli"
       title="Goora itzuli"
     >
-      ↑
+      <ArrowUp size={24} strokeWidth={2.4} aria-hidden="true" />
     </button>
   )
 }

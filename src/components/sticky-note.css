@@ -9,8 +9,8 @@
   line-height: 1.65;
 }
 
-.sticky-note--l { transform: rotate(-1.6deg); }
-.sticky-note--r { transform: rotate(1.4deg); }
+.sticky-note--l { rotate: -1.6deg; }
+.sticky-note--r { rotate: 1.4deg; }
 
 .sticky-note__tape {
   position: absolute;
@@ -30,6 +30,9 @@
   font-size: 1.25rem;
   margin-bottom: 0.4rem;
   color: #7a5c00;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
 }
 
 .sticky-note__body {

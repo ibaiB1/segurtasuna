@@ -10,7 +10,7 @@
 }
 
 .hero__title {
-  font-size: clamp(3rem, 8.5vw, 5.6rem);
+  font-size: clamp(2.4rem, 9vw, 5.6rem);
   letter-spacing: 0.01em;
 }
 
@@ -38,7 +38,7 @@
 
 .hero__note {
   margin-top: 2.4rem;
-  color: var(--ink-faint);
+  color: var(--ink-soft);
   font-size: 1.05rem;
   letter-spacing: 0.03em;
 }
@@ -59,14 +59,14 @@
 .hero__sticker--1 {
   top: 18%;
   left: 6%;
-  transform: rotate(-8deg);
+  rotate: -8deg;
   animation-delay: 0.5s;
 }
 
 .hero__sticker--2 {
   top: 30%;
   right: 7%;
-  transform: rotate(7deg);
+  rotate: 7deg;
 }
 
 @media (max-width: 700px) {
@@ -156,6 +156,10 @@
 .terms__hint {
   color: var(--ink-soft);
   margin-top: 0.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
 }
 
 .terms__grid {
@@ -186,6 +190,19 @@
 
 .howto__card {
   padding: 1.6rem;
+}
+
+.howto__card:nth-child(1) .howto__icon svg { color: var(--blue); }
+.howto__card:nth-child(2) .howto__icon svg { color: var(--purple); }
+.howto__card:nth-child(3) .howto__icon svg { color: var(--red); }
+
+.howto__icon {
+  display: inline-flex;
+  margin-bottom: 0.3rem;
+}
+
+.howto__card:hover .howto__icon svg {
+  animation: icon-wiggle 0.6s ease;
 }
 
 .howto__card h3 {
