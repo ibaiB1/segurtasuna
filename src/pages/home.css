@@ -110,35 +110,6 @@
   font-size: 1.28rem;
 }
 
-/* ---------- STATS ---------- */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.2rem;
-  padding: 2.8rem 0 1rem;
-}
-
-.stats__item {
-  text-align: center;
-  padding: 1.2rem 1rem;
-  display: grid;
-  gap: 0.1rem;
-}
-
-.stats__num {
-  font-family: var(--font-title);
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1;
-  color: var(--blue);
-}
-
-.stats__label {
-  font-family: var(--font-note);
-  font-weight: 700;
-  color: var(--ink-soft);
-}
-
 /* ---------- TERMINOAK ---------- */
 .terms {
   padding: 4rem 0 1rem;

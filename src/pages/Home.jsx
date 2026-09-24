@@ -6,11 +6,8 @@ import SplitText from '../components/SplitText'
 import GradientText from '../components/GradientText'
 import Squiggle from '../components/Squiggle'
 import TermCard from '../components/TermCard'
-import CountUp from '../components/CountUp'
 import Footer from '../components/Footer'
 import './home.css'
-
-const totalSteps = TERMS.reduce((acc, t) => acc + t.steps.length, 0)
 
 // HashRouter-ekin ezin da #ancla arruntik erabili: programazkijo scroll-a egin behar da
 const scrollToTerms = () => {
@@ -81,26 +78,6 @@ export default function Home() {
             ulertzeko eta gogoratzeko idatzia. Irakurri, margotu buruan eta…{' '}
             <em>segur egon!</em>
           </p>
-        </Reveal>
-      </section>
-
-      {/* ---------- ZENBAKIAK ---------- */}
-      <section className="container stats" aria-label="Koadernoko zenbakiak">
-        <Reveal variant="up" className="stats__item sheet">
-          <span className="stats__num"><CountUp to={TERMS.length} /></span>
-          <span className="stats__label">termino</span>
-        </Reveal>
-        <Reveal variant="up" delay={120} className="stats__item sheet tilt-l">
-          <span className="stats__num"><CountUp to={totalSteps} /></span>
-          <span className="stats__label">urrats</span>
-        </Reveal>
-        <Reveal variant="up" delay={240} className="stats__item sheet tilt-r">
-          <span className="stats__num"><CountUp to={TERMS.length} /></span>
-          <span className="stats__label">adibide</span>
-        </Reveal>
-        <Reveal variant="up" delay={360} className="stats__item sheet">
-          <span className="stats__num">∞</span>
-          <span className="stats__label">jakin-min</span>
         </Reveal>
       </section>
 
