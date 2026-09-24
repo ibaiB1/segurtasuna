@@ -1,0 +1,203 @@
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  padding: 5.5rem 0 3.5rem;
+  text-align: center;
+}
+
+.hero__kicker {
+  margin-bottom: 1.2rem;
+}
+
+.hero__title {
+  font-size: clamp(3rem, 8.5vw, 5.6rem);
+  letter-spacing: 0.01em;
+}
+
+.hero__title-word {
+  display: inline-block;
+  position: relative;
+  color: var(--blue);
+  transform: rotate(-2deg);
+}
+
+.hero__subtitle {
+  max-width: 34em;
+  margin: 1.4rem auto 0;
+  font-size: 1.45rem;
+  color: var(--ink-soft);
+}
+
+.hero__actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2.2rem;
+}
+
+.hero__note {
+  margin-top: 2.4rem;
+  color: var(--ink-faint);
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+}
+
+/* Sticker flotatzaileak */
+.hero__sticker {
+  position: absolute;
+  font-size: 2.4rem;
+  background: var(--paper-sheet);
+  border: 2px solid rgba(51, 48, 74, 0.18);
+  border-radius: 12px;
+  padding: 0.35em 0.4em;
+  box-shadow: var(--shadow-sm);
+  animation: sticker-float 5s ease-in-out infinite;
+  user-select: none;
+}
+
+.hero__sticker--1 {
+  top: 18%;
+  left: 6%;
+  transform: rotate(-8deg);
+  animation-delay: 0.5s;
+}
+
+.hero__sticker--2 {
+  top: 30%;
+  right: 7%;
+  transform: rotate(7deg);
+}
+
+@media (max-width: 700px) {
+  .hero__sticker {
+    display: none;
+  }
+}
+
+@keyframes sticker-float {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+.home__divider {
+  display: block;
+  width: min(300px, 60vw);
+  margin: 0.5rem auto;
+}
+
+/* ---------- ABOUT ---------- */
+.about {
+  padding: 3.5rem 0 1rem;
+}
+
+.about__sheet {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.about__title {
+  font-size: 2.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.about__sheet p {
+  margin-bottom: 0.9rem;
+  font-size: 1.28rem;
+}
+
+/* ---------- STATS ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.2rem;
+  padding: 2.8rem 0 1rem;
+}
+
+.stats__item {
+  text-align: center;
+  padding: 1.2rem 1rem;
+  display: grid;
+  gap: 0.1rem;
+}
+
+.stats__num {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--blue);
+}
+
+.stats__label {
+  font-family: var(--font-note);
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+/* ---------- TERMINOAK ---------- */
+.terms {
+  padding: 4rem 0 1rem;
+}
+
+.terms__head {
+  text-align: center;
+  margin-bottom: 2.4rem;
+}
+
+.terms__title {
+  font-size: 3rem;
+}
+
+.terms__hint {
+  color: var(--ink-soft);
+  margin-top: 0.4rem;
+}
+
+.terms__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.8rem 1.4rem;
+  /* zenbaki-zirkuluak ez kentzeko */
+  padding-top: 0.8rem;
+}
+
+/* ---------- NOLA IRAKURRI ---------- */
+.howto {
+  padding: 4rem 0 0;
+  text-align: center;
+}
+
+.howto__title {
+  font-size: 2.6rem;
+  margin-bottom: 1.8rem;
+}
+
+.howto__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.4rem;
+  text-align: left;
+}
+
+.howto__card {
+  padding: 1.6rem;
+}
+
+.howto__card h3 {
+  font-size: 1.9rem;
+  margin: 0.3rem 0 0.2rem;
+}
+
+.howto__card p {
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+}
+
+.howto__emoji {
+  font-size: 2rem;
+}

@@ -1,0 +1,32 @@
+.footer {
+  margin-top: 5rem;
+  border-top: 3px dashed rgba(51, 48, 74, 0.25);
+  background: rgba(255, 253, 246, 0.7);
+  padding: 2rem 0 2.6rem;
+}
+
+.footer__inner {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.footer__doodle {
+  color: var(--ink-faint);
+  letter-spacing: 0.4em;
+}
+
+.footer__meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6em;
+  flex-wrap: wrap;
+}
+
+.chip--soon {
+  color: var(--orange);
+  border-style: dashed;
+}

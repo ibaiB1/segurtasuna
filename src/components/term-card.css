@@ -1,0 +1,98 @@
+.term-card-wrap {
+  height: 100%;
+}
+
+.term-card {
+  --term-color: var(--blue);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  height: 100%;
+  padding: 1.6rem 1.5rem 1.3rem 2.4rem;
+  background: var(--paper-sheet);
+  border: 2px solid rgba(51, 48, 74, 0.18);
+  border-left: 6px solid var(--term-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: var(--ink);
+  transition:
+    transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.22s ease;
+}
+
+.term-card:hover {
+  transform: translateY(-6px) rotate(-0.6deg);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Zenbakiaren zirkulu eskuz marraztua */
+.term-card__number {
+  position: absolute;
+  top: -14px;
+  left: -14px;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--term-color);
+  background: var(--paper-sheet);
+  border: 2.5px dashed var(--term-color);
+  border-radius: 50% 46% 52% 48%;
+  transform: rotate(-6deg);
+}
+
+.term-card__emoji {
+  font-size: 2.2rem;
+  line-height: 1;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.term-card:hover .term-card__emoji {
+  transform: scale(1.25) rotate(-8deg);
+}
+
+.term-card__name {
+  font-size: 2.1rem;
+}
+
+.term-card__tag {
+  align-self: flex-start;
+  font-family: var(--font-note);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--term-color);
+  border: 2px solid var(--term-color);
+  border-radius: 999px;
+  padding: 0 0.7em;
+  transform: rotate(-1deg);
+}
+
+.term-card__intro {
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+  line-height: 1.55;
+  flex: 1;
+}
+
+.term-card__cta {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--term-color);
+}
+
+.term-card__cta i {
+  display: inline-block;
+  font-style: normal;
+  transition: transform 0.2s ease;
+}
+
+.term-card:hover .term-card__cta i {
+  transform: translateX(6px);
+}

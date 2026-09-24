@@ -1,0 +1,27 @@
+.gradient-text {
+  --grad-1: #2451b3;
+  --grad-2: #7b3fbf;
+  --grad-3: #d84343;
+  background: linear-gradient(
+    100deg,
+    var(--grad-1) 0%,
+    var(--grad-2) 30%,
+    var(--grad-3) 55%,
+    var(--grad-1) 85%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: grad-slide 7s ease-in-out infinite;
+}
+
+@keyframes grad-slide {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}

@@ -1,0 +1,262 @@
+.term {
+  --term-color: var(--blue);
+  padding-top: 1.6rem;
+}
+
+/* ---------- Breadcrumb ---------- */
+.term__crumbs {
+  font-size: 1.05rem;
+  color: var(--ink-faint);
+  margin-bottom: 2.2rem;
+}
+
+.term__crumbs a {
+  color: var(--ink-soft);
+}
+
+.term__crumbs strong {
+  color: var(--ink);
+}
+
+/* ---------- Goiburua ---------- */
+.term__header {
+  text-align: center;
+  position: relative;
+  padding-top: 1rem;
+}
+
+.term__badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(-8deg);
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--term-color);
+  border: 3px dashed var(--term-color);
+  border-radius: 48% 52% 46% 54%;
+  background: var(--paper-sheet);
+  box-shadow: var(--shadow-sm);
+  pointer-events: none;
+}
+
+.term__title {
+  font-size: clamp(2.8rem, 7vw, 4.6rem);
+  padding-top: 2.6rem;
+}
+
+.term__title-emoji {
+  display: inline-block;
+  animation: emoji-wiggle 3.2s ease-in-out infinite;
+}
+
+@keyframes emoji-wiggle {
+  0%, 84%, 100% { transform: rotate(0) scale(1); }
+  88% { transform: rotate(-10deg) scale(1.15); }
+  92% { transform: rotate(8deg) scale(1.15); }
+  96% { transform: rotate(-5deg) scale(1.05); }
+}
+
+.term__tags {
+  margin-top: 0.5rem;
+}
+
+.term__tag {
+  display: inline-block;
+  font-family: var(--font-note);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--term-color);
+  border: 2.5px solid var(--term-color);
+  border-radius: 999px;
+  padding: 0.1em 1em;
+  background: var(--paper-sheet);
+  transform: rotate(-1deg);
+}
+
+.term__squiggle {
+  display: block;
+  width: min(260px, 55vw);
+  margin: 1.6rem auto 0;
+}
+
+/* ---------- Atalak ---------- */
+.term__section {
+  margin-top: 3.4rem;
+}
+
+.term__h2 {
+  font-size: 2.7rem;
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.term__def {
+  max-width: 760px;
+  font-size: 1.35rem;
+}
+
+/* ---------- Urratsak ---------- */
+.term__steps {
+  list-style: none;
+  display: grid;
+  gap: 1.1rem;
+  max-width: 760px;
+  position: relative;
+}
+
+/* puntuzko lotura-lerroa urratsen artean */
+.term__step {
+  position: relative;
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  padding-bottom: 0.6rem;
+}
+
+.term__step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 21px;
+  top: 48px;
+  bottom: -0.7rem;
+  border-left: 2.5px dashed rgba(51, 48, 74, 0.25);
+}
+
+.term__step-num {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--term-color);
+  border: 2.5px dashed var(--term-color);
+  border-radius: 52% 48% 50% 50%;
+  background: var(--paper-sheet);
+  transform: rotate(-4deg);
+}
+
+.term__step p {
+  padding-top: 0.25rem;
+  font-size: 1.25rem;
+}
+
+/* ---------- Adibidea ---------- */
+.term__section .sticky-note {
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+.term__quick {
+  margin-top: 1.6rem;
+  text-align: center;
+}
+
+/* ---------- Pager ---------- */
+.term__pager {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.pager-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8em;
+  padding: 0.7em 1.1em;
+  background: var(--paper-sheet);
+  border: 2.5px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pager-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  background: #fffef0;
+}
+
+.pager-btn small {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  line-height: 1.2;
+}
+
+.pager-btn strong {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.pager-btn__dir {
+  font-size: 1.6rem;
+  color: var(--term-color);
+}
+
+/* ---------- Aurkibidea ---------- */
+.term__index {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.term__index-label {
+  font-family: var(--font-note);
+  color: var(--ink-faint);
+  margin-bottom: 0.6rem;
+}
+
+.term__index-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.term__index-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.15em 0.8em;
+  border: 2px solid rgba(51, 48, 74, 0.2);
+  border-radius: 999px;
+  background: var(--paper-sheet);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.term__index-item:hover {
+  border-color: var(--c);
+  transform: translateY(-2px) rotate(-1deg);
+}
+
+.term__index-item.is-current {
+  border-color: var(--c);
+  background: color-mix(in srgb, var(--c) 12%, var(--paper-sheet));
+}
+
+@media (max-width: 640px) {
+  .term__pager {
+    flex-direction: column;
+  }
+  .pager-btn {
+    justify-content: center;
+  }
+}
