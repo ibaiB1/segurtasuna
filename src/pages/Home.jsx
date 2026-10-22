@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Lock, Pencil, PenLine, ArrowDown, ArrowRight, Search, Cog, StickyNote } from 'lucide-react'
-import { TERMS } from '../data/terms'
+import { ERRONKAK } from '../data/terms'
 import Reveal from '../components/Reveal'
 import SplitText from '../components/SplitText'
 import GradientText from '../components/GradientText'
@@ -27,7 +27,9 @@ export default function Home() {
         </Reveal>
 
         <p className="hero__kicker">
-          <span className="chip">Erronka 1 · hiztegia</span>
+          <span className="chip">
+            {ERRONKAK.filter((u) => u.ready).map((u) => u.label).join(' · ')} · hiztegia
+          </span>
         </p>
 
         <h1 className="hero__title">
@@ -84,20 +86,27 @@ export default function Home() {
       {/* ---------- TERMINOAK ---------- */}
       <section id="terminoak" className="container terms">
         <Reveal variant="up" className="terms__head">
-          <h2 className="terms__title">
-            Erronka 1 — <GradientText colors={['#d84343', '#7b3fbf', '#2451b3']}>terminoak</GradientText>
-          </h2>
           <p className="terms__hint">
             Aukeratu orri bat eta hasi oharrak hartzen
             <ArrowDown size={20} strokeWidth={2.4} className="icon-bounce" aria-hidden="true" />
           </p>
         </Reveal>
 
-        <div className="terms__grid">
-          {TERMS.map((t, i) => (
-            <TermCard key={t.slug} term={t} index={i} />
-          ))}
-        </div>
+        {ERRONKAK.filter((u) => u.ready).map((u) => (
+          <div key={u.id} className="terms__unit">
+            <Reveal variant="up" className="terms__head">
+              <h2 className="terms__title">
+                Erronka {u.id} — <GradientText colors={['#d84343', '#7b3fbf', '#2451b3']}>terminoak</GradientText>
+              </h2>
+            </Reveal>
+
+            <div className="terms__grid">
+              {u.terms.map((t, i) => (
+                <TermCard key={t.slug} term={{ ...t, unit: u.id }} index={i} />
+              ))}
+            </div>
+          </div>
+        ))}
       </section>
 
       {/* ---------- NOLA IRAKURRI ---------- */}

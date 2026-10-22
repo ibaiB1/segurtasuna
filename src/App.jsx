@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { Fragment, useCallback, useEffect, useState } from 'react'
 import { HashRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import Loader from './components/Loader'
 import Navbar from './components/Navbar'
@@ -6,6 +6,7 @@ import ScrollProgress from './components/ScrollProgress'
 import BackToTop from './components/BackToTop'
 import Home from './pages/Home'
 import TermPage from './pages/TermPage'
+import { ERRONKAK } from './data/terms'
 
 /** Orri aldatzean goora itzuli (animaziorik gabe). */
 function ScrollToTop() {
@@ -39,8 +40,12 @@ export default function App() {
         {ready && (
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/erronka1" element={<Navigate to="/" replace />} />
-            <Route path="/erronka1/:slug" element={<TermPage />} />
+            {ERRONKAK.map((u) => (
+              <Fragment key={u.id}>
+                <Route path={`/erronka${u.id}`} element={<Navigate to="/" replace />} />
+                <Route path={`/erronka${u.id}/:slug`} element={<TermPage />} />
+              </Fragment>
+            ))}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         )}

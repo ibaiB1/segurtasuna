@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import Reveal from './Reveal'
 import TermIcon from './TermIcon'
+import { termPath } from '../data/terms'
 import './term-card.css'
 
 /**
@@ -11,7 +12,7 @@ export default function TermCard({ term, index = 0 }) {
   return (
     <Reveal variant="pop" delay={index * 90} className="term-card-wrap">
       <Link
-        to={`/erronka1/${term.slug}`}
+        to={termPath(term)}
         className="term-card"
         style={{ '--term-color': term.color }}
       >

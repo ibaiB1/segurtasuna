@@ -1,4 +1,5 @@
 import { PenLine } from 'lucide-react'
+import { ERRONKAK } from '../data/terms'
 import './footer.css'
 
 export default function Footer() {
@@ -15,7 +16,7 @@ export default function Footer() {
           euskaraz.
         </p>
         <p className="footer__meta">
-          Erronka 1 · <span className="chip chip--soon">Erronka 2 laster…</span>
+          {ERRONKAK.filter((u) => u.ready).map((u) => u.label).join(' · ')}
         </p>
       </div>
     </footer>

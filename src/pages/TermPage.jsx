@@ -1,6 +1,6 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { Search, Cog, StickyNote, Lightbulb, ArrowLeft, ArrowRight } from 'lucide-react'
-import { getNeighbors, getTerm, TERMS } from '../data/terms'
+import { Search, Cog, StickyNote, Lightbulb, ArrowLeft, ArrowRight, Target, ShieldCheck } from 'lucide-react'
+import { getNeighbors, getTerm, getUnit, termPath, TERMS } from '../data/terms'
 import Reveal from '../components/Reveal'
 import SplitText from '../components/SplitText'
 import Squiggle from '../components/Squiggle'
@@ -16,6 +16,8 @@ export default function TermPage() {
   if (!term) return <Navigate to="/" replace />
 
   const { prev, next } = getNeighbors(slug)
+  const unit = getUnit(term.unit)
+  const siblings = TERMS.filter((t) => t.unit === term.unit)
 
   return (
     <main className="term" style={{ '--term-color': term.color }}>
@@ -24,7 +26,7 @@ export default function TermPage() {
         <Reveal variant="blur" as="nav" className="term__crumbs" aria-label="Bide-izena">
           <Link to="/">Hasiera</Link>
           <span aria-hidden="true"> / </span>
-          <span>Erronka 1</span>
+          <span>{unit.label}</span>
           <span aria-hidden="true"> / </span>
           <strong aria-current="page">{term.name}</strong>
         </Reveal>
@@ -95,10 +97,46 @@ export default function TermPage() {
           </Reveal>
         </section>
 
+        {/* ZERTARAKO (aukerakoa) */}
+        {term.uses && (
+          <section className="term__section" aria-labelledby="zertarako">
+            <Reveal variant="up">
+              <h2 id="zertarako" className="term__h2">
+                <Target size={30} strokeWidth={2.3} aria-hidden="true" /> Zertarako erabiltzen da?
+              </h2>
+            </Reveal>
+            <Reveal variant="up" delay={120} className="sheet term__def tilt-r">
+              <ul className="term__list">
+                {term.uses.map((use, i) => (
+                  <li key={i}>{use}</li>
+                ))}
+              </ul>
+            </Reveal>
+          </section>
+        )}
+
+        {/* NOLA BABESTU (aukerakoa) */}
+        {term.protect && (
+          <section className="term__section" aria-labelledby="babestu">
+            <Reveal variant="up">
+              <h2 id="babestu" className="term__h2">
+                <ShieldCheck size={30} strokeWidth={2.3} aria-hidden="true" /> Nola babestu?
+              </h2>
+            </Reveal>
+            <Reveal variant="up" delay={120} className="sheet term__def tilt-l">
+              <ul className="term__list">
+                {term.protect.map((tip, i) => (
+                  <li key={i}>{tip}</li>
+                ))}
+              </ul>
+            </Reveal>
+          </section>
+        )}
+
         {/* ORRIAK ALDATZEA */}
         <nav className="term__pager" aria-label="Termino arteko nabigazioa">
           {prev ? (
-            <Link to={`/erronka1/${prev.slug}`} className="pager-btn pager-btn--prev">
+            <Link to={termPath(prev)} className="pager-btn pager-btn--prev">
               <ArrowLeft size={24} strokeWidth={2.4} className="pager-btn__dir" aria-hidden="true" />
               <span>
                 <small>Aurrekoa</small>
@@ -109,7 +147,7 @@ export default function TermPage() {
             <span />
           )}
           {next ? (
-            <Link to={`/erronka1/${next.slug}`} className="pager-btn pager-btn--next">
+            <Link to={termPath(next)} className="pager-btn pager-btn--next">
               <span>
                 <small>Hurrengoa</small>
                 <strong>{next.name}</strong>
@@ -125,10 +163,10 @@ export default function TermPage() {
         <Reveal variant="up" className="term__index">
           <p className="term__index-label">Koadernoaren aurkibidea:</p>
           <ul className="term__index-list">
-            {TERMS.map((t) => (
+            {siblings.map((t) => (
               <li key={t.slug}>
                 <Link
-                  to={`/erronka1/${t.slug}`}
+                  to={termPath(t)}
                   className={`term__index-item ${t.slug === term.slug ? 'is-current' : ''}`}
                   style={{ '--c': t.color }}
                 >

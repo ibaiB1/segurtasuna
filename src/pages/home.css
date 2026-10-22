@@ -141,6 +141,10 @@
   padding-top: 0.8rem;
 }
 
+.terms__unit + .terms__unit {
+  margin-top: 4.5rem;
+}
+
 /* ---------- NOLA IRAKURRI ---------- */
 .howto {
   padding: 4rem 0 0;

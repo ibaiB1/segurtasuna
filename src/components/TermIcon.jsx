@@ -1,4 +1,7 @@
-import { MailWarning, Bug, VenetianMask, DoorOpen, ScanEye, Wallet } from 'lucide-react'
+import {
+  MailWarning, Bug, VenetianMask, DoorOpen, ScanEye, Wallet,
+  Share2, Network, KeyRound,
+} from 'lucide-react'
 
 /**
  * Termino bakoitzaren ikonoa (Lucide). Data-destatik banatuta dago
@@ -11,6 +14,9 @@ const MAP = {
   backdoorrak: DoorOpen,
   spywarea: ScanEye,
   stealerrak: Wallet,
+  koobface: Share2,
+  botnet: Network,
+  'indar-gordineko-erasoa': KeyRound,
 }
 
 export default function TermIcon({ slug, size = 24, strokeWidth = 2.2, className = '', style }) {
