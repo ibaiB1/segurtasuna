@@ -1,6 +1,7 @@
 import {
   MailWarning, Bug, VenetianMask, DoorOpen, ScanEye, Wallet,
-  Share2, Network, KeyRound,
+  Share2, Network, KeyRound, ListChecks, Fingerprint, Key, Shuffle,
+  FileSignature, BadgeCheck, Terminal,
 } from 'lucide-react'
 
 /**
@@ -17,6 +18,14 @@ const MAP = {
   koobface: Share2,
   botnet: Network,
   'indar-gordineko-erasoa': KeyRound,
+  acl: ListChecks,
+  'pasahitz-politikak': Fingerprint,
+  'kripto-simetrikoa': Key,
+  'kripto-asimetrikoa': Shuffle,
+  'kripto-hibridoa': Shuffle,
+  'sinadura-digitala': FileSignature,
+  pki: BadgeCheck,
+  'ssh-ssl-tls': Terminal,
 }
 
 export default function TermIcon({ slug, size = 24, strokeWidth = 2.2, className = '', style }) {
