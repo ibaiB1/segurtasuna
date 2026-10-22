@@ -204,12 +204,9 @@ const ERRONKA2_TERMS = [
       'Saihestu erabiltzaile-izen lehenetsiak (admin, root), eta ez utzi sarbide-puntuak irekita, beharrezkoa ez bada.',
     ],
   },
-]
-
-const ERRONKA3_TERMS = [
   {
     slug: 'acl',
-    number: 1,
+    number: 4,
     name: 'ACLak',
     tag: 'Sarbide-kontrola',
     color: 'var(--teal)',
@@ -237,7 +234,7 @@ const ERRONKA3_TERMS = [
   },
   {
     slug: 'pasahitz-politikak',
-    number: 2,
+    number: 5,
     name: 'Pasahitz-politikak',
     tag: 'Autentifikazioa',
     color: 'var(--red)',
@@ -266,7 +263,7 @@ const ERRONKA3_TERMS = [
   },
   {
     slug: 'kripto-simetrikoa',
-    number: 3,
+    number: 6,
     name: 'Kriptografia simetrikoa',
     tag: 'Gako bakarra',
     color: 'var(--amber)',
@@ -292,7 +289,7 @@ const ERRONKA3_TERMS = [
   },
   {
     slug: 'kripto-asimetrikoa',
-    number: 4,
+    number: 7,
     name: 'Kriptografia asimetrikoa',
     tag: 'Gako publikoa eta pribatua',
     color: 'var(--blue)',
@@ -318,7 +315,7 @@ const ERRONKA3_TERMS = [
   },
   {
     slug: 'kripto-hibridoa',
-    number: 5,
+    number: 8,
     name: 'Kriptografia hibridoa',
     tag: 'Bi munduen onena',
     color: 'var(--purple)',
@@ -335,7 +332,7 @@ const ERRONKA3_TERMS = [
   },
   {
     slug: 'sinadura-digitala',
-    number: 6,
+    number: 9,
     name: 'Sinadura digitala',
     tag: 'Identitatea eta osotasuna',
     color: 'var(--green)',
@@ -357,7 +354,7 @@ const ERRONKA3_TERMS = [
   },
   {
     slug: 'pki',
-    number: 7,
+    number: 10,
     name: 'PKI',
     tag: 'Gako publikoen azpiegitura',
     color: 'var(--indigo)',
@@ -380,7 +377,7 @@ const ERRONKA3_TERMS = [
   },
   {
     slug: 'ssh-ssl-tls',
-    number: 8,
+    number: 11,
     name: 'SSH eta SSL/TLS',
     tag: 'Komunikazio segurua',
     color: 'var(--orange)',
@@ -419,13 +416,6 @@ export const ERRONKAK = [
     title: 'Segurtasun informatikoaren hiztegia: 2. unitatea',
     ready: true,
     terms: ERRONKA2_TERMS,
-  },
-  {
-    id: 3,
-    label: 'Erronka 3',
-    title: 'Segurtasun logikoa: ACLak, pasahitzak eta kriptografia',
-    ready: true,
-    terms: ERRONKA3_TERMS,
   },
 ]
 
