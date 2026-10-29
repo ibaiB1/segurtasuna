@@ -74,8 +74,6 @@ export default function Navbar() {
               <div
                 key={u.id}
                 className={`navbar__group ${openUnit === u.id ? 'is-open' : ''}`}
-                onMouseEnter={() => setOpenUnit(u.id)}
-                onMouseLeave={() => setOpenUnit(null)}
               >
                 <button
                   type="button"

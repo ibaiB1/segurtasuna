@@ -198,6 +198,7 @@
 
 .navbar__drop-name {
   flex: 1;
+  white-space: nowrap;
 }
 
 .navbar__drop-num {
