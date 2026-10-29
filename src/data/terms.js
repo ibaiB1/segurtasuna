@@ -287,6 +287,188 @@ const ERRONKA2_TERMS = [
   },
 ]
 
+const ERRONKA3_TERMS = [
+  {
+    slug: 'aktiboak-atzeko-ateak',
+    number: 1,
+    name: 'Atzeko ateak',
+    tag: 'Sarbide isila',
+    color: 'var(--teal)',
+    cardIntro: 'Sistemara berriro sartzeko bide ezkutua: detektatzeko zailenetako bat.',
+    definition:
+      'Sistema batera itzultzeko bide ezkutua. Erasotzaileak lehen sarbidea nola lortu zuen ahaztuta ere, bide horretatik berriro sar daiteke. Ez du alarmarik sortzen, eta horregatik da hain zaila detektatzea.',
+    steps: [
+      'Sistema kutsatzen da (adibidez, troiar baten bidez) eta sarbide ezkutu bat instalatzen da.',
+      'Sarbide hori zerbitzu edo prozesu normal baten barruan ezkutatzen da.',
+      'Erasotzaileak nahi duenean, bide horretatik sartzen da, pasahitzik gabe edo gako ezkutu baten bidez.',
+    ],
+    uses: [
+      'Sisteman sarbidea mantentzea, denbora luzez.',
+      'Datuak kanpora ateratzea, ohartarazi gabe.',
+    ],
+    example:
+      'Adibide hipotetikoa: zerbitzari batean baimendutako gakoen zerrendan gako bat agertzen da, inork instalatu ez duena. Hilabetez erabili izan da, eta ez da inoiz ohartu.',
+    quick: 'Autentifikazioa saltatzen du, eta isilik geratzen da.',
+    protect: [
+      'Baimendutako gakoak eta erabiltzaileak aldizka berrikusi.',
+      'Sarbide-puntu bakoitza beharrezkoa ote den galdetu.',
+    ],
+    impact: [
+      { label: 'Konfidentzialtasuna', risk: true, text: 'Sisteman dauden datuak irakur daitezke, erasotzaileak nahi duenean.' },
+      { label: 'Osotasuna', risk: true, text: 'Sistemaren ezarpenak eta kodea alda daitezke, isilik.' },
+      { label: 'Erabilgarritasuna', risk: false, text: 'Zerbitzua normal dabil; horregatik ez da ezer nabarmentzen.' },
+      { label: 'Autentikazioa', risk: true, text: 'Pasahitzik gabe sartzen da, autentifikazio arrunta saltatuz.' },
+      { label: 'Ez-arbuiatzea', risk: false, text: 'Sarrerak logetan ezkutatu daitezke, baina batzuetan aztertu daitezke.' },
+    ],
+    conclusion: 'Atzeko atea aurkitzeko, sistemaren gakoak, zerbitzuak eta sarrerak aldizka berrikusi behar dira. Ez nahikoa da antibirusa.',
+    opinion: 'Zerbitzari txiki bat kudeatzen nuenean ez nekien zein gako zeuden baimenduta. Orain hilero begiratzen diot.',
+  },
+  {
+    slug: 'aktiboak-botnetak',
+    number: 2,
+    name: 'Botnetak',
+    tag: 'Kontrol-zerbitzaria',
+    color: 'var(--blue)',
+    cardIntro: 'Gailu kutsatuen sarea: kontrol-zerbitzaria kentzen bada, sarea isiltzen da.',
+    definition:
+      'Urruneko kontrol-zerbitzari baten mende dauden gailu kutsatuen sarea. Sarea gelditzeko, nahikoa da kontrol-zerbitzaria blokeatzea. Horregatik, erasotzaileek kontrol-bide ugari erabiltzen dituzte.',
+    steps: [
+      'Gailuak kutsatzen dira (phishinga, pasahitz ahulak edo software zaharra).',
+      'Gailuak kontrol-zerbitzari batekin konektatzen dira, eta haien aginduak jasotzen dituzte.',
+      'Erasotzaileak agindu bat bidaltzen du, eta gailu guztiek batera exekutatzen dute.',
+    ],
+    uses: [
+      'Zerbitzu bati gainkarga egitea (DDoS).',
+      'Spam mezuen bidalketa masiboa.',
+    ],
+    example:
+      'Adibide hipotetikoa: kamera kutsatuek webgune bati eskaera berdina bidaltzen diote aldi berean, eta zerbitzua erori egiten da.',
+    quick: 'Kontrol-zerbitzaria kendu, eta sarea isiltzen da.',
+    protect: [
+      'Gailu guztien softwarea eta firmwarea eguneratuta izan.',
+      'Lehenetsitako pasahitzak aldatu.',
+      'Sarearen trafikoa aldizka begiratu, ohiko ez den jarduera bilatzeko.',
+    ],
+    impact: [
+      { label: 'Konfidentzialtasuna', risk: true, text: 'Gailuetatik datuak bil daitezke, batez ere pasahitzak.' },
+      { label: 'Osotasuna', risk: false, text: 'Datuak ez dira aldatzen; gailuak erabiltzen dira.' },
+      { label: 'Erabilgarritasuna', risk: true, text: 'Zerbitzu bat eskuraezin utz dezake, gainkargaren bidez.' },
+      { label: 'Autentikazioa', risk: true, text: 'Gailu kutsatuak erabiltzaile legitimo gisa agertzen dira.' },
+      { label: 'Ez-arbuiatzea', risk: false, text: 'Erasoa gailu askotatik dator, eta horregatik jatorria zaila da jarraitzea.' },
+    ],
+    conclusion: 'Botnetetatik babesteko, gailuak eguneratuta eta pasahitz sendoekin mantendu, eta sarearen trafikoa kontrolatu.',
+    opinion: 'Nire etxeko kamera zaharrak pasahitz lehenetsia zuen. Ordutik, gailu guztien softwarea eguneratzen dut.',
+  },
+  {
+    slug: 'aktiboak-harrak',
+    number: 3,
+    name: 'Harrak',
+    tag: 'Autohedapena',
+    color: 'var(--orange)',
+    cardIntro: 'Erabiltzailerik behar gabe, sarean zehar bere kopia zabaltzen duen malwarea.',
+    definition:
+      'Bere kabuz hedatzen den malwarea. Gailu batean exekutatzen da, sare bereko beste gailuak bilatzen ditu eta kopia bat egiten du bakoitzean. Ez du fitxategirik irekitzea behar, sarea bera baita bidea.',
+    steps: [
+      'Gailu batean exekutatzen da, ahulezia baten bidez (software zaharra edo sarbide irekia).',
+      'Sare bereko beste gailuak bilatzen ditu, eta bakoitzean kopia bat egiten du.',
+      'Kopia bakoitzak prozesu bera errepikatzen du, eta hedapena azkar handitzen da.',
+    ],
+    uses: [
+      'Sare osoa motelarazi, baliabideak xurgatuz.',
+      'Beste malware bat banatzea.',
+    ],
+    example:
+      'WannaCry (2017): ahulezia bat erabiliz hedatu zen, eta milaka sare kutsatu zituen munduan zehar, fitxategiak zifratuz.',
+    quick: 'Ez du erabiltzailerik behar: sarea bera da bidea.',
+    protect: [
+      'Sistema eta softwarea eguneratuta mantendu.',
+      'Sarea segmentatu, kalteak mugatzeko.',
+      'Ez beharrezkoak diren sarbide-puntu irekiak (adibidez, SMB, RDP) itxi.',
+    ],
+    impact: [
+      { label: 'Konfidentzialtasuna', risk: true, text: 'Sarean dauden datuak irakur ditzake.' },
+      { label: 'Osotasuna', risk: true, text: 'Fitxategiak zifra edo alda ditzake.' },
+      { label: 'Erabilgarritasuna', risk: true, text: 'Sare osoa geldi dezake, kopia guztiek baliabideak hartzen dituztelako.' },
+      { label: 'Autentikazioa', risk: false, text: 'Ez du pasahitzik apurtzen; ahulezia bat erabiltzen du.' },
+      { label: 'Ez-arbuiatzea', risk: false, text: 'Nondik hasi den jakitea zaila da, sarean zehar hedatzen delako.' },
+    ],
+    conclusion: 'Harrak ahulezia zaharretatik hedatzen dira. Eguneratzea eta sarearen segmentazioa dira kalterik handiena saihesteko bideak.',
+    opinion: 'Sare bateko ordenagailu bat eguneratu gabe zegoen. Ordutik, eguneratzeak automatikoki egiten ditut, ahazteko arriskua saihesteko.',
+  },
+  {
+    slug: 'aktiboak-mamuak',
+    number: 4,
+    name: 'Mamuak',
+    tag: 'Arrastorik gabe',
+    color: 'var(--indigo)',
+    cardIntro: 'Bere lana egin eta arrastoak ezabatzen dituen malwarea: ia ez da ikusten.',
+    definition:
+      'Bere eginkizuna bete ondoren bere arrastoak ezabatzen dituen malwarea. Fitxategirik utzi gabe memorian bizi daiteke, eta horregatik antibirus tradizionalek ez dute beti hautematen.',
+    steps: [
+      'Sisteman sartzen da, normalean fitxategi bakarrik utzi gabe.',
+      'Bere atazak memorian edo sistemaren prozesu legitimoen artean exekutatzen ditu.',
+      'Atazak amaitu ondoren, bere arrastoak ezabatzen ditu eta isilik geratzen da.',
+    ],
+    uses: [
+      'Datuak lapurtu eta kanpora bidaltzea, arrastorik utzi gabe.',
+      'Sistema denbora luzez kontrolatzea, detektatu gabe.',
+    ],
+    example:
+      'Adibide hipotetikoa: zerbitzari baten memoriako prozesu batek hilabetez datu batzuk kopiatzen ditu, eta ez da inoiz diskoan fitxategirik agertzen.',
+    quick: 'Fitxategirik utzi gabe, memorian bizi da.',
+    protect: [
+      'Prozesu eta zerbitzu berriak aldizka berrikusi.',
+      'Portaeran oinarritutako segurtasun-tresnak erabili, fitxategiak bakarrik ez.',
+      'Administratzaile-sarbidea mugatu, behar ez denean.',
+    ],
+    impact: [
+      { label: 'Konfidentzialtasuna', risk: true, text: 'Datu sentikorrak kopia ditzake, ohartarazi gabe.' },
+      { label: 'Osotasuna', risk: true, text: 'Prozesuen portaera alda dezake, sistema ustela izanik.' },
+      { label: 'Erabilgarritasuna', risk: false, text: 'Sistema normal dabil; ez dago ohar nabarmenik.' },
+      { label: 'Autentikazioa', risk: false, text: 'Ez du sarbide berririk lortzen; dagoen sarbidea erabiltzen du.' },
+      { label: 'Ez-arbuiatzea', risk: false, text: 'Arrastorik ez dagoenez, zaila da jarduera egiaztatzea.' },
+    ],
+    conclusion: 'Mamuak detektatzeko, fitxategiez gain, prozesuen portaera eta memoria ere begiratu behar dira.',
+    opinion: 'Antibirusak ez zuen ezer aurkitu nire zerbitzarian, baina prozesu bat ohikoa ez zela ikusi nuen. Orduan jakin nuen fitxategiak bakarrik ez direla nahikoa.',
+  },
+  {
+    slug: 'aktiboak-troiarrak',
+    number: 5,
+    name: 'Troiarrak',
+    tag: 'Software legitimo itxurakoa',
+    color: 'var(--pink)',
+    cardIntro: 'Software legitimoa itxuratzen duen malwarea: batzuetan eguneraketa ofizial bat da.',
+    definition:
+      'Software legitimo baten barruan ezkutatutako malwarea. Ez dira soilik doako edo pirata dauden programak: software ofizialaren banaketa ere kutsa daiteke, eta orduan erabiltzaileak gutxi egin dezake.',
+    steps: [
+      'Software batean kode maltzurra txertatzen da, banaketa bidean edo eguneratze faltsu baten bidez.',
+      'Erabiltzaileak programa instalatzen du, legitimoa dela uste duelako.',
+      'Programak agindutako lana egiten du, eta atzeko planoan beste zerbait exekutatzen du.',
+    ],
+    uses: [
+      'Datuak lapurtzea.',
+      'Sarbidea ematea beste erasotzaile batzuei.',
+    ],
+    example:
+      'SolarWinds (2020): eguneratze legitimo baten bidez hedatu zen. Ikusi dugun backdoor-aren kasu berbera da, baina hemen sarrera troiar moduan egin zen.',
+    quick: 'Legitimoa dirudi, baina sinadura digitala egiaztatu behar da.',
+    protect: [
+      'Sinadura digitala eta hash-a egiaztatu instalatu aurretik.',
+      'Iturri ofizialetik soilik deskargatu.',
+      'Eguneratzeak programaren menutik egin, ez mezu-estekatik.',
+    ],
+    impact: [
+      { label: 'Konfidentzialtasuna', risk: true, text: 'Instalatzaileak zure datuak bidal ditzake atzeko planoan.' },
+      { label: 'Osotasuna', risk: true, text: 'Programaren kodea eta sistemaren ezarpenak alda ditzake.' },
+      { label: 'Erabilgarritasuna', risk: false, text: 'Programa funtzionatzen du, eta horregatik ez da ohar nabarmenik.' },
+      { label: 'Autentikazioa', risk: true, text: 'Sarbide berria ireki dezake beste erasotzaile batzuentzat.' },
+      { label: 'Ez-arbuiatzea', risk: false, text: 'Instalazioa zuk onartu duzu, baina programa legitimoa zirudien.' },
+    ],
+    conclusion: 'Software ofiziala ere kutsatu daiteke. Instalatu aurretik sinadura egiaztatu eta iturri ofizialetik deskargatu.',
+    opinion: 'Programa bat webgune ofizialetik deskargatu nuen, baina ez nuen sinadura begiratu. Orain beti egiaztatzen dut instalatu aurretik.',
+  },
+]
+
 export const ERRONKAK = [
   {
     id: 1,
@@ -301,6 +483,13 @@ export const ERRONKAK = [
     title: 'Segurtasun informatikoaren hiztegia: 2. unitatea',
     ready: true,
     terms: ERRONKA2_TERMS,
+  },
+  {
+    id: 3,
+    label: 'Erronka 3',
+    title: 'Segurtasun aktiboa: malware-motak',
+    ready: true,
+    terms: ERRONKA3_TERMS,
   },
 ]
 

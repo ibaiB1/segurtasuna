@@ -1,6 +1,6 @@
 import {
   MailWarning, Bug, VenetianMask, DoorOpen, ScanEye, Wallet,
-  Share2, Network, KeyRound,
+  Share2, Network, KeyRound, Repeat, Ghost,
 } from 'lucide-react'
 
 /**
@@ -17,6 +17,11 @@ const MAP = {
   koobface: Share2,
   botnet: Network,
   'indar-gordineko-erasoa': KeyRound,
+  'aktiboak-atzeko-ateak': DoorOpen,
+  'aktiboak-botnetak': Network,
+  'aktiboak-harrak': Repeat,
+  'aktiboak-mamuak': Ghost,
+  'aktiboak-troiarrak': VenetianMask,
 }
 
 export default function TermIcon({ slug, size = 24, strokeWidth = 2.2, className = '', style }) {
