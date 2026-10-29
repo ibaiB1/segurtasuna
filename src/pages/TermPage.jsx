@@ -1,11 +1,12 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { Search, Cog, StickyNote, Lightbulb, ArrowLeft, ArrowRight, Target, ShieldCheck } from 'lucide-react'
+import { Search, Cog, StickyNote, Lightbulb, ArrowLeft, ArrowRight, Target, ShieldCheck, Activity, Flag } from 'lucide-react'
 import { getNeighbors, getTerm, getUnit, termPath, TERMS } from '../data/terms'
 import Reveal from '../components/Reveal'
 import SplitText from '../components/SplitText'
 import Squiggle from '../components/Squiggle'
 import StickyNoteEl from '../components/StickyNote'
 import TermIcon from '../components/TermIcon'
+import ImpactTable from '../components/ImpactTable'
 import Footer from '../components/Footer'
 import './term.css'
 
@@ -129,6 +130,39 @@ export default function TermPage() {
                   <li key={i}>{tip}</li>
                 ))}
               </ul>
+            </Reveal>
+          </section>
+        )}
+
+        {/* ERAGINA (aukerakoa) */}
+        {term.impact && (
+          <section className="term__section" aria-labelledby="eragina">
+            <Reveal variant="up">
+              <h2 id="eragina" className="term__h2">
+                <Activity size={30} strokeWidth={2.3} aria-hidden="true" /> Eragina
+              </h2>
+            </Reveal>
+            <Reveal variant="up" delay={120}>
+              <ImpactTable rows={term.impact} />
+            </Reveal>
+          </section>
+        )}
+
+        {/* ONDORIOA ETA IRITZIA (aukerakoak) */}
+        {term.conclusion && (
+          <section className="term__section" aria-labelledby="ondorioa">
+            <Reveal variant="up">
+              <h2 id="ondorioa" className="term__h2">
+                <Flag size={30} strokeWidth={2.3} aria-hidden="true" /> Ondorioa
+              </h2>
+            </Reveal>
+            <Reveal variant="up" delay={120} className="sheet term__def tilt-r">
+              <p>{term.conclusion}</p>
+            </Reveal>
+            <Reveal variant="pop" delay={200}>
+              <StickyNoteEl title="Iritzi simulatua" tilt={term.number % 2 ? 'l' : 'r'}>
+                <p>{term.opinion}</p>
+              </StickyNoteEl>
             </Reveal>
           </section>
         )}

@@ -1,0 +1,53 @@
+.impact__summary {
+  font-family: var(--font-note);
+  font-size: 1.1rem;
+  margin: 0 0 0.6rem;
+}
+
+.impact__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.impact__row {
+  display: grid;
+  grid-template-columns: minmax(140px, 1fr) 28px 2fr;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px dashed rgba(51, 48, 74, 0.2);
+}
+
+.impact__row:last-child {
+  border-bottom: 0;
+}
+
+.impact__label {
+  font-weight: 700;
+}
+
+.impact__badge {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--paper-dark);
+  color: var(--ink-faint);
+}
+
+.impact__row.is-risk .impact__badge {
+  background: var(--red);
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .impact__row {
+    grid-template-columns: 1fr auto;
+  }
+
+  .impact__text {
+    grid-column: 1 / -1;
+  }
+}

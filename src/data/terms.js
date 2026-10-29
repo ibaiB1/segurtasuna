@@ -20,6 +20,15 @@ const ERRONKA1_TERMS = [
     example:
       'Zure bankuaren itxurako posta elektroniko bat jasotzen duzu: “Zure kontua blokeatuko da 24 ordutan. Egiaztatu zure datuak hemen”. Estekak bankuaren orriaren kopia perfektu batera eramaten zaitu, baina domeinua apur bat desberdina da (adibidez, banku-segurua.com banku.eus beharrean). Erabiltzaile-izena eta pasahitza sartzen badituzu, erasotzaileak eskuratzen ditu.',
     quick: 'Domeinu faltsuak ia berdinak dira: banku-segurua.com ≠ banku.eus',
+    impact: [
+      { label: 'Konfidentzialtasuna', risk: true, text: 'Pasahitza lapurtuta, erasotzaileak zure posta eta zerbitzuetako datuak ikus ditzake.' },
+      { label: 'Osotasuna', risk: true, text: 'Kontuan sartu ondoren, mezuak edo ordainketa-datuak alda ditzake.' },
+      { label: 'Erabilgarritasuna', risk: false, text: 'Zerbitzua abian dago; erasoak ez du ezer gelditzen.' },
+      { label: 'Autentikazioa', risk: true, text: 'Sistemak erasotzailea erabiltzaile legitimo gisa onartzen du.' },
+      { label: 'Ez-arbuiatzea', risk: true, text: 'Egindako ekintzak zure izenean geratzen dira, eta zaila da ukatzea.' },
+    ],
+    conclusion: 'Phishinga giza engainuan oinarritzen da: mezu batek presa eta beldurra sortzen badu, geldi zaitez eta egiaztatu beste kanal batetik.',
+    opinion: 'Phishing mezu bat ikusten dudanean, lehenengo gauza estekaren domeinua begiratzea da. Presarik badago, ez dut klikatzen; zuzenean deitzen diot bankuari.',
   },
   {
     slug: 'birusak',
@@ -38,6 +47,15 @@ const ERRONKA1_TERMS = [
     example:
       'CIH edo “Txernobil” birusa (1998). Windows ordenagailuetako fitxategiak kutsatzen zituen, eta data zehatz batean datuak ezabatzen zituen, baita zenbait ordenagailutan BIOSa hondatu ere, ekipoa erabilezin utziz.',
     quick: 'Ostalari bat behar du hedatzeko: ez da bakarrik mugitzen.',
+    impact: [
+      { label: 'Konfidentzialtasuna', risk: true, text: 'Fitxategiak irakurri eta kopiatu ditzake, datu pribatuak barne.' },
+      { label: 'Osotasuna', risk: true, text: 'Fitxategiak kaltetu edo aldatu ditzake, batzuetan ezin konpondu.' },
+      { label: 'Erabilgarritasuna', risk: true, text: 'Sistema moteldu edo erabat blokea dezake.' },
+      { label: 'Autentikazioa', risk: false, text: 'Ez du pasahitzik apurtzen; sarbide legitimoa erabiltzen du.' },
+      { label: 'Ez-arbuiatzea', risk: false, text: 'Kalteak ikusgarriak dira; ez da arazo nagusia.' },
+    ],
+    conclusion: 'Birusek ostalari bat behar dute. Fitxategi ezezagunak irekitzeko orduan kontuz ibili, batez ere USB memorietan.',
+    opinion: 'USB memoria batetik birus bat jaso nuen. Ordutik, memoriak lehenengo eskaneatzen ditut, beti.',
   },
   {
     slug: 'troiarrak',
@@ -57,6 +75,15 @@ const ERRONKA1_TERMS = [
     example:
       'Zeus (Zbot). Banku-troiar ezagun bat, posta-eranskin eta deskarga kutsatuen bidez zabaldua, erabiltzaileek banku-webguneetan sartzen zituzten datuak lapurtzen zituena.',
     quick: 'Ez hedatzen bere kabuz: erabiltzailearen engainuaren mende dago.',
+    impact: [
+      { label: 'Konfidentzialtasuna', risk: true, text: 'Atzeko planoan zure fitxategiak eta pasahitzak bidal ditzake.' },
+      { label: 'Osotasuna', risk: true, text: 'Instalatutako programak sistemaren ezarpenak alda ditzake.' },
+      { label: 'Erabilgarritasuna', risk: true, text: 'Beste malware bat instalatu eta baliabideak xurgatuz zerbitzua moteldu dezake.' },
+      { label: 'Autentikazioa', risk: true, text: 'Erasotzaileak sarbide bat utz dezake, saioa berriro hasteko.' },
+      { label: 'Ez-arbuiatzea', risk: false, text: 'Instalazioa zuk onartu duzu, eta horrek zer gertatu den argitzen du.' },
+    ],
+    conclusion: 'Troiarrak erabiltzailearen konfiantzaren mende daude. Ezezaguna den programa bat instalatu aurretik, nork egin duen eta zertarako den begiratu.',
+    opinion: 'Joko doakoak deskargatzea zoragarria iruditzen zitzaidan, baina askotan doakoak beste modu batera ordaintzen dira. Orain, ordaindutako aplikazioa nahiago dut.',
   },
   {
     slug: 'backdoorrak',
@@ -75,6 +102,15 @@ const ERRONKA1_TERMS = [
     example:
       'SUNBURST (2020). SolarWinds enpresaren software-eguneraketa legitimo batean ezkutatutako backdoor bat izan zen. Milaka erakunderen sareetan sartu zen, gobernu-erakundeak barne.',
     quick: 'Autentifikazio normala saltatu eta isilik geratzen da.',
+    impact: [
+      { label: 'Konfidentzialtasuna', risk: true, text: 'Sistemara sartzen den erasotzaileak fitxategi guztiak ikus ditzake.' },
+      { label: 'Osotasuna', risk: true, text: 'Kodea exekutatu eta datuak alda ditzake.' },
+      { label: 'Erabilgarritasuna', risk: true, text: 'Zerbitzua gelditu edo moteldu dezake nahi duenean.' },
+      { label: 'Autentikazioa', risk: true, text: 'Pasahitzik gabe sartzen da, autentifikazio arrunta saltatuz.' },
+      { label: 'Ez-arbuiatzea', risk: false, text: 'Sarrerak ezkutatu daitezke, eta horregatik zaila da jarraitzea.' },
+    ],
+    conclusion: 'Backdoorrak isilik daude, eta horregatik dira hain arriskutsuak. Sistemaren aldaketak eta portu irekiak kontrolatu behar dira.',
+    opinion: 'Zerbitzari batean portu ustekabeko bat ikusi nuen. Ez nuen ezer aldatu, baina kontrolatu eta itxi egin nuen.',
   },
   {
     slug: 'spywarea',
@@ -93,6 +129,15 @@ const ERRONKA1_TERMS = [
     example:
       'Pegasus. Telefono mugikorretan instalatzen den spyware aurreratua. Mezuak, deiak, kokapena, mikrofonoa eta kamera kontrolatzeko gai da, eta kasu batzuetan erabiltzaileak ezer egin gabe ere infektatu daiteke.',
     quick: 'Teklatuko sakatzeak, kokapena, mikrofonoa... dena erregistratzen du.',
+    impact: [
+      { label: 'Konfidentzialtasuna', risk: true, text: 'Mezuak, deiak eta kokapena erregistratu eta kanpora bidal ditzake.' },
+      { label: 'Osotasuna', risk: false, text: 'Ez ditu datuak aldatzen; zaintzea da bere helburua.' },
+      { label: 'Erabilgarritasuna', risk: false, text: 'Gailua normal dabil, erabiltzaileak ez du ezer nabaritzen.' },
+      { label: 'Autentikazioa', risk: false, text: 'Ez du sarbiderik lortzen; jarduera bakarrik kopiatzen du.' },
+      { label: 'Ez-arbuiatzea', risk: true, text: 'Kanpora bidalitako datuak ezin dira berreskuratu.' },
+    ],
+    conclusion: 'Spywareak isilik lan egiten du. Aplikazioek eskatzen dituzten baimenak arretaz begiratu, eta ez eman zergatik behar duten ulertzen ez duzunik.',
+    opinion: 'Linterna aplikazio batek kontaktuak eta kokapena eskatu zidan. Ez nion baimenik eman, zergatik behar zuen ulertzen ez nuelako.',
   },
   {
     slug: 'stealerrak',
@@ -111,6 +156,15 @@ const ERRONKA1_TERMS = [
     example:
       'RedLine Stealer. Doako software edo joko piratatu gisa ezkutatuta hedatzen zen. Nabigatzailean gordetako pasahitzak eta ordainketa-txartelak lapurtzen zituen, eta datu horiek merkatu ilegaletan saltzen ziren.',
     quick: 'Arrastorik utzi gabe: datuak merkatu ilegaletan saltzen dira.',
+    impact: [
+      { label: 'Konfidentzialtasuna', risk: true, text: 'Pasahitzak, cookieak eta kriptomoneta-zorroak lapurtzen ditu.' },
+      { label: 'Osotasuna', risk: false, text: 'Ez ditu datuak aldatzen; kopiak egiten ditu.' },
+      { label: 'Erabilgarritasuna', risk: false, text: 'Zerbitzuak normal jarraitzen du; ez da ezer nabarmentzen.' },
+      { label: 'Autentikazioa', risk: true, text: 'Saio-tokenak lapurtuta, pasahitzik gabe sar daiteke kontuetara.' },
+      { label: 'Ez-arbuiatzea', risk: true, text: 'Datuak merkatu ilegaletan saltzen dira, eta jatorria ezkutatzen da.' },
+    ],
+    conclusion: 'Stealerrek kontuak lapur ditzakete. Pasahitz bakarra eta bi urratseko autentifikazioa (2FA) dira defentsarik onena.',
+    opinion: 'Nabigatzailean pasahitzak gordetzen ditudan aldiro galdetzen diot neure buruari ea segurua den. Azkenean, pasahitz-kudeatzaile bat erabiltzea erabaki nuen.',
   },
 ]
 
@@ -138,6 +192,15 @@ const ERRONKA2_TERMS = [
     example:
       'Lagun batek bideo “barregarri” baten esteka bidaltzen dizu mezu pribatu batean. Estekak bideoa ikusteko programa bat deskargatzeko eskatzen dizu. Deskargatzen baduzu, zure kontaktu guztiek mezu bera jasoko dute zure izenean.',
     quick: 'Bideoa ikusteko eguneratzea ez da inoiz legitimoa.',
+    impact: [
+      { label: 'Konfidentzialtasuna', risk: true, text: 'Kontaktuen datuak eta saioaren informazioa lapurtzen ditu.' },
+      { label: 'Osotasuna', risk: true, text: 'Mezuak zure izenean bidaltzen ditu, eta kontuaren ezarpenak alda ditzake.' },
+      { label: 'Erabilgarritasuna', risk: true, text: 'Gailuaren baliabideak xurgatzen ditu eta klik-iruzurra egiten du.' },
+      { label: 'Autentikazioa', risk: true, text: 'Zure identitatea erabiliz jarduten du, zu bezala agertuz.' },
+      { label: 'Ez-arbuiatzea', risk: false, text: 'Mezuak zure kontutik ateratzen dira, eta argi dago zure kontua kutsatuta dagoela.' },
+    ],
+    conclusion: 'Sare sozialeko estekak ere egiaztatu behar dira, lagun batek bidalitakoak ere. Mezu bat ustekabekoa bada, galdetu lagunari beste kanal batetik.',
+    opinion: 'Lagun batek bideo bat bidali zidan eta programa bat instalatzeko eskatu zidan. Ez nuen egin, eta lagunari galdetu nion; bere kontua kutsatuta zegoen.',
     protect: [
       'Ez ireki ustekabeko estekarik.',
       'Ez instalatu programarik web orri batek eskatzen duelako.',
@@ -168,6 +231,15 @@ const ERRONKA2_TERMS = [
     example:
       'Mirai (2016): IoT gailuak kutsatu zituen, eta Dyn enpresaren aurkako DDoS erasoa gauzatu zuen. Ondorioz, Twitter eta Netflix bezalako zerbitzu ezagunak ordu batzuetan eskuraezin geratu ziren. Emotet: beste malware batzuk banatzeko erabili zen; 2021ean nazioarteko operazio polizial batean desegin zuten. Conficker (2008): milioika Windows ordenagailu kutsatu zituen.',
     quick: 'Milaka gailu, agindu-emaile bakarra: botmaster-a.',
+    impact: [
+      { label: 'Konfidentzialtasuna', risk: true, text: 'Botmasterrak gailuetatik datuak bil ditzake, pasahitzak barne.' },
+      { label: 'Osotasuna', risk: true, text: 'Gailuak beste helburu batzuetarako erabil daitezke, eta haien ezarpenak alda.' },
+      { label: 'Erabilgarritasuna', risk: true, text: 'Milaka gailuk batera zerbitzu bat gainkargatu dezakete (DDoS).' },
+      { label: 'Autentikazioa', risk: true, text: 'Gailu kutsatuak erabiltzaile legitimo gisa agertzen dira zerbitzarien aurrean.' },
+      { label: 'Ez-arbuiatzea', risk: false, text: 'Erasoa gailu askotan banatuta dago, eta horrek jatorria jarraitzea zailtzen du.' },
+    ],
+    conclusion: 'Botnetak gailu xumeetatik sortzen dira. Gailuak eguneratuta eta pasahitz sendoekin mantendu, batez ere routerrak eta kamerak.',
+    opinion: 'Nire routerreko pasahitz lehenetsia ez nuen aldatu. Orain gailu berri bat instalatzen dudanean, lehenengo gauza pasahitza aldatzea da.',
     protect: [
       'Gailuak eguneratuta mantendu.',
       'IoT gailuen lehenetsitako pasahitzak aldatu.',
@@ -196,6 +268,15 @@ const ERRONKA2_TERMS = [
     example:
       'Bot batek WordPress webgune baten wp-login.php orrian “admin” erabiltzailearekin milaka pasahitz probatzen ditu. Interneten ireki-irekian dagoen SSH edo RDP zerbitzari batek egunero ehunka edo milaka saiakera jasotzen ditu automatikoki. Hainbat zerbitzutan pasahitz bera erabiltzen duen pertsona bat, filtrazio baten ondoren, kontu guztietan erasotua izan daiteke.',
     quick: 'Pasahitz luzea eta bakarra da defentsarik onena.',
+    impact: [
+      { label: 'Konfidentzialtasuna', risk: true, text: 'Pasahitza asmatuz gero, kontuko datu guztiak eskura daitezke.' },
+      { label: 'Osotasuna', risk: true, text: 'Kontua kontrolatuta, datuak alda daitezke.' },
+      { label: 'Erabilgarritasuna', risk: true, text: 'Saiakera asko egiteak zerbitzua moteldu edo blokea dezake.' },
+      { label: 'Autentikazioa', risk: true, text: 'Pasahitza asmatuta, sistemak erasotzailea onartzen du.' },
+      { label: 'Ez-arbuiatzea', risk: false, text: 'Saiakerak logetan gelditzen dira, eta horrek jatorria aztertzen lagun dezake.' },
+    ],
+    conclusion: 'Pasahitz luze eta bakarrek eta bi urratseko autentifikazioak (2FA) indar gordinezko erasoen aurka babesten gaituzte.',
+    opinion: 'Pasahitz bera hainbat zerbitzutan erabiltzen nuen. Filtrazio baten ondoren, guztiak aldatu nituen eta pasahitz-kudeatzailea erabiltzen hasi nintzen.',
     protect: [
       'Pasahitz luze eta bakarrak erabili (gutxienez 12-14 karaktere), pasahitz-kudeatzaile baten laguntzaz.',
       'Bi urratseko autentifikazioa (2FA) gaitu.',
