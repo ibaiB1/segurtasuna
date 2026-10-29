@@ -163,7 +163,7 @@ export default function TermPage({ items, base, crumb }) {
               <p>{term.conclusion}</p>
             </Reveal>
             <Reveal variant="pop" delay={200}>
-              <StickyNoteEl title="Iritzi simulatua" tilt={term.number % 2 ? 'l' : 'r'}>
+              <StickyNoteEl title="Nire iritzia" tilt={term.number % 2 ? 'l' : 'r'}>
                 <p>{term.opinion}</p>
               </StickyNoteEl>
             </Reveal>
