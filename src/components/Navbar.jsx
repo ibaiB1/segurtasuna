@@ -1,38 +1,50 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Pencil, ChevronDown } from 'lucide-react'
-import { ERRONKAK, termPath } from '../data/terms'
+import { ERRONKAK } from '../data/terms'
+import { CIBERATAKETAK } from '../data/ciberataketak'
 import TermIcon from './TermIcon'
 import './navbar.css'
 
+// Desplegable bakoitza: erronka bat edo ciberataketen atala
+const groups = [
+  ...ERRONKAK.filter((u) => u.ready).map((u) => ({
+    key: `erronka${u.id}`,
+    label: u.label,
+    base: `/erronka${u.id}`,
+    terms: u.terms,
+  })),
+  { key: 'ciberataketak', label: 'Ciberataketak', base: '/ciberataketak', terms: CIBERATAKETAK },
+]
+
 export default function Navbar() {
   const { pathname } = useLocation()
-  const [openUnit, setOpenUnit] = useState(null) // zein erronka-desplegable dagoen irekita
+  const [openGroup, setOpenGroup] = useState(null) // zein desplegable dagoen irekita
   const [mobileOpen, setMobileOpen] = useState(false)
   const menuRef = useRef(null)
 
   // Aldatu orriz mintz irekiak ixteko
   useEffect(() => {
-    setOpenUnit(null)
+    setOpenGroup(null)
     setMobileOpen(false)
   }, [pathname])
 
   // Klik kanpoan egininez itxi dropdown-a
   useEffect(() => {
-    if (openUnit === null) return
+    if (openGroup === null) return
     const onClick = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
-        setOpenUnit(null)
+        setOpenGroup(null)
       }
     }
-    const onKey = (e) => e.key === 'Escape' && setOpenUnit(null)
+    const onKey = (e) => e.key === 'Escape' && setOpenGroup(null)
     document.addEventListener('pointerdown', onClick)
     document.addEventListener('keydown', onKey)
     return () => {
       document.removeEventListener('pointerdown', onClick)
       document.removeEventListener('keydown', onKey)
     }
-  }, [openUnit])
+  }, [openGroup])
 
   return (
     <header className="navbar">
@@ -69,44 +81,38 @@ export default function Navbar() {
             Hasiera
           </NavLink>
 
-          {ERRONKAK.map((u) =>
-            u.ready ? (
-              <div
-                key={u.id}
-                className={`navbar__group ${openUnit === u.id ? 'is-open' : ''}`}
+          {groups.map((g) => (
+            <div
+              key={g.key}
+              className={`navbar__group ${openGroup === g.key ? 'is-open' : ''}`}
+            >
+              <button
+                type="button"
+                className={`navbar__tab navbar__tab--btn ${pathname.startsWith(g.base) ? 'is-active' : ''}`}
+                onClick={() => setOpenGroup((v) => (v === g.key ? null : g.key))}
+                aria-expanded={openGroup === g.key}
               >
-                <button
-                  type="button"
-                  className={`navbar__tab navbar__tab--btn ${pathname.startsWith(`/erronka${u.id}`) ? 'is-active' : ''}`}
-                  onClick={() => setOpenUnit((v) => (v === u.id ? null : u.id))}
-                  aria-expanded={openUnit === u.id}
-                >
-                  {u.label} <ChevronDown className="navbar__caret" size={18} strokeWidth={2.4} aria-hidden="true" />
-                </button>
+                {g.label} <ChevronDown className="navbar__caret" size={18} strokeWidth={2.4} aria-hidden="true" />
+              </button>
 
-                <div className="navbar__dropdown" role="menu">
-                  {u.terms.map((t) => (
-                    <NavLink
-                      key={t.slug}
-                      to={termPath({ ...t, unit: u.id })}
-                      role="menuitem"
-                      className={({ isActive }) =>
-                        `navbar__drop-item ${isActive ? 'is-active' : ''}`
-                      }
-                    >
-                      <TermIcon slug={t.slug} size={22} className="navbar__drop-icon" style={{ color: t.color }} />
-                      <span className="navbar__drop-name">{t.name}</span>
-                      <span className="navbar__drop-num" aria-hidden="true">{t.number}</span>
-                    </NavLink>
-                  ))}
-                </div>
+              <div className="navbar__dropdown" role="menu">
+                {g.terms.map((t) => (
+                  <NavLink
+                    key={t.slug}
+                    to={`${g.base}/${t.slug}`}
+                    role="menuitem"
+                    className={({ isActive }) =>
+                      `navbar__drop-item ${isActive ? 'is-active' : ''}`
+                    }
+                  >
+                    <TermIcon slug={t.slug} size={22} className="navbar__drop-icon" style={{ color: t.color }} />
+                    <span className="navbar__drop-name">{t.name}</span>
+                    <span className="navbar__drop-num" aria-hidden="true">{t.number}</span>
+                  </NavLink>
+                ))}
               </div>
-            ) : (
-              <span key={u.id} className="navbar__tab navbar__tab--soon" title="Laster eskuragarri">
-                {u.label} <span className="navbar__soon">laster</span>
-              </span>
-            )
-          )}
+            </div>
+          ))}
         </nav>
       </div>
     </header>

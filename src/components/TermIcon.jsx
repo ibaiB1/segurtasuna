@@ -1,6 +1,6 @@
 import {
   MailWarning, Bug, VenetianMask, DoorOpen, ScanEye, Wallet,
-  Share2, Network, KeyRound, Repeat, Ghost,
+  Share2, Network, KeyRound, Repeat, Ghost, Cpu, LockKeyhole,
 } from 'lucide-react'
 
 /**
@@ -22,6 +22,8 @@ const MAP = {
   'aktiboak-harrak': Repeat,
   'aktiboak-mamuak': Ghost,
   'aktiboak-troiarrak': VenetianMask,
+  stuxnet: Cpu,
+  wannacry: LockKeyhole,
 }
 
 export default function TermIcon({ slug, size = 24, strokeWidth = 2.2, className = '', style }) {

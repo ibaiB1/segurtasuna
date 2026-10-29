@@ -1,6 +1,5 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { Search, Cog, StickyNote, Lightbulb, ArrowLeft, ArrowRight, Target, ShieldCheck, Activity, Flag } from 'lucide-react'
-import { getNeighbors, getTerm, getUnit, termPath, TERMS } from '../data/terms'
 import Reveal from '../components/Reveal'
 import SplitText from '../components/SplitText'
 import Squiggle from '../components/Squiggle'
@@ -10,15 +9,19 @@ import ImpactTable from '../components/ImpactTable'
 import Footer from '../components/Footer'
 import './term.css'
 
-export default function TermPage() {
+/**
+ * Orri bakarra, edozein zerrendarentzat: erronka bateko terminoak edo ciberataketak.
+ * items: orrialdeko elementuen zerrenda, base: URL-aren oinarria, crumb: ogibide-etiketa.
+ */
+export default function TermPage({ items, base, crumb }) {
   const { slug } = useParams()
-  const term = getTerm(slug)
+  const index = items.findIndex((t) => t.slug === slug)
 
-  if (!term) return <Navigate to="/" replace />
+  if (index < 0) return <Navigate to="/" replace />
 
-  const { prev, next } = getNeighbors(slug)
-  const unit = getUnit(term.unit)
-  const siblings = TERMS.filter((t) => t.unit === term.unit)
+  const term = items[index]
+  const prev = items[index - 1] ?? null
+  const next = items[index + 1] ?? null
 
   return (
     <main className="term" style={{ '--term-color': term.color }}>
@@ -27,7 +30,7 @@ export default function TermPage() {
         <Reveal variant="blur" as="nav" className="term__crumbs" aria-label="Bide-izena">
           <Link to="/">Hasiera</Link>
           <span aria-hidden="true"> / </span>
-          <span>{unit.label}</span>
+          <span>{crumb}</span>
           <span aria-hidden="true"> / </span>
           <strong aria-current="page">{term.name}</strong>
         </Reveal>
@@ -170,7 +173,7 @@ export default function TermPage() {
         {/* ORRIAK ALDATZEA */}
         <nav className="term__pager" aria-label="Termino arteko nabigazioa">
           {prev ? (
-            <Link to={termPath(prev)} className="pager-btn pager-btn--prev">
+            <Link to={`${base}/${prev.slug}`} className="pager-btn pager-btn--prev">
               <ArrowLeft size={24} strokeWidth={2.4} className="pager-btn__dir" aria-hidden="true" />
               <span>
                 <small>Aurrekoa</small>
@@ -181,7 +184,7 @@ export default function TermPage() {
             <span />
           )}
           {next ? (
-            <Link to={termPath(next)} className="pager-btn pager-btn--next">
+            <Link to={`${base}/${next.slug}`} className="pager-btn pager-btn--next">
               <span>
                 <small>Hurrengoa</small>
                 <strong>{next.name}</strong>
@@ -197,10 +200,10 @@ export default function TermPage() {
         <Reveal variant="up" className="term__index">
           <p className="term__index-label">Koadernoaren aurkibidea:</p>
           <ul className="term__index-list">
-            {siblings.map((t) => (
+            {items.map((t) => (
               <li key={t.slug}>
                 <Link
-                  to={termPath(t)}
+                  to={`${base}/${t.slug}`}
                   className={`term__index-item ${t.slug === term.slug ? 'is-current' : ''}`}
                   style={{ '--c': t.color }}
                 >

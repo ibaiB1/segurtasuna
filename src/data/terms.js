@@ -378,7 +378,7 @@ const ERRONKA3_TERMS = [
       'Beste malware bat banatzea.',
     ],
     example:
-      'WannaCry (2017): ahulezia bat erabiliz hedatu zen, eta milaka sare kutsatu zituen munduan zehar, fitxategiak zifratuz.',
+      'Adibide hipotetikoa: enpresa bateko ordenagailu batek ahulezia bat du. Kutsatu ondoren, sare bereko ordenagailu guztiak ordu gutxitan motelduta daude, bakoitzean kopia bat dagoelako.',
     quick: 'Ez du erabiltzailerik behar: sarea bera da bidea.',
     protect: [
       'Sistema eta softwarea eguneratuta mantendu.',
@@ -450,7 +450,7 @@ const ERRONKA3_TERMS = [
       'Sarbidea ematea beste erasotzaile batzuei.',
     ],
     example:
-      'SolarWinds (2020): eguneratze legitimo baten bidez hedatu zen. Ikusi dugun backdoor-aren kasu berbera da, baina hemen sarrera troiar moduan egin zen.',
+      'Adibide hipotetikoa: doako PDF editore bat deskargatzen duzu. Instalatzean, zure nabigatzailean bigarren programa bat ere sartzen da, eta zure datuak bidaltzen hasten da, ezer jakin gabe.',
     quick: 'Legitimoa dirudi, baina sinadura digitala egiaztatu behar da.',
     protect: [
       'Sinadura digitala eta hash-a egiaztatu instalatu aurretik.',

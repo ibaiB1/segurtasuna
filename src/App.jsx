@@ -7,6 +7,7 @@ import BackToTop from './components/BackToTop'
 import Home from './pages/Home'
 import TermPage from './pages/TermPage'
 import { ERRONKAK } from './data/terms'
+import { CIBERATAKETAK } from './data/ciberataketak'
 
 /** Orri aldatzean goora itzuli (animaziorik gabe). */
 function ScrollToTop() {
@@ -43,9 +44,16 @@ export default function App() {
             {ERRONKAK.map((u) => (
               <Fragment key={u.id}>
                 <Route path={`/erronka${u.id}`} element={<Navigate to="/" replace />} />
-                <Route path={`/erronka${u.id}/:slug`} element={<TermPage />} />
+                <Route
+                  path={`/erronka${u.id}/:slug`}
+                  element={<TermPage items={u.terms} base={`/erronka${u.id}`} crumb={u.label} />}
+                />
               </Fragment>
             ))}
+            <Route
+              path="/ciberataketak/:slug"
+              element={<TermPage items={CIBERATAKETAK} base="/ciberataketak" crumb="Ciberataketak" />}
+            />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         )}
