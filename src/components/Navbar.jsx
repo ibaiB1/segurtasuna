@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Pencil, ChevronDown } from 'lucide-react'
 import { ERRONKAK } from '../data/terms'
-import { CIBERATAKETAK } from '../data/ciberataketak'
+import { ZIBERATAKEAK } from '../data/ziberatakeak'
 import TermIcon from './TermIcon'
 import './navbar.css'
 
-// Desplegable bakoitza: erronka bat edo ciberataketen atala
+// Desplegable bakoitza: erronka bat edo ziberatakeen atala
 const groups = [
   ...ERRONKAK.filter((u) => u.ready).map((u) => ({
     key: `erronka${u.id}`,
@@ -14,7 +14,7 @@ const groups = [
     base: `/erronka${u.id}`,
     terms: u.terms,
   })),
-  { key: 'ciberataketak', label: 'Ciberataketak', base: '/ciberataketak', terms: CIBERATAKETAK },
+  { key: 'ziberatakeak', label: 'Ziberatakeak', base: '/ziberatakeak', terms: ZIBERATAKEAK },
 ]
 
 export default function Navbar() {

@@ -10,7 +10,7 @@ import Footer from '../components/Footer'
 import './term.css'
 
 /**
- * Orri bakarra, edozein zerrendarentzat: erronka bateko terminoak edo ciberataketak.
+ * Orri bakarra, edozein zerrendarentzat: erronka bateko terminoak edo ziberatakeak.
  * items: orrialdeko elementuen zerrenda, base: URL-aren oinarria, crumb: ogibide-etiketa.
  */
 export default function TermPage({ items, base, crumb }) {

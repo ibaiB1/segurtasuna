@@ -7,7 +7,7 @@ import BackToTop from './components/BackToTop'
 import Home from './pages/Home'
 import TermPage from './pages/TermPage'
 import { ERRONKAK } from './data/terms'
-import { CIBERATAKETAK } from './data/ciberataketak'
+import { ZIBERATAKEAK } from './data/ziberatakeak'
 
 /** Orri aldatzean goora itzuli (animaziorik gabe). */
 function ScrollToTop() {
@@ -51,8 +51,8 @@ export default function App() {
               </Fragment>
             ))}
             <Route
-              path="/ciberataketak/:slug"
-              element={<TermPage items={CIBERATAKETAK} base="/ciberataketak" crumb="Ciberataketak" />}
+              path="/ziberatakeak/:slug"
+              element={<TermPage items={ZIBERATAKEAK} base="/ziberatakeak" crumb="Ziberatakeak" />}
             />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

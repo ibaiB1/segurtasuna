@@ -1,7 +1,7 @@
-// Ciberataketa famatuak: kasu errealak, bakoitza bere orrian.
+// Ziberatake ezagunak: kasu errealak, bakoitza bere orrian.
 // Termino-orriaren egitura bera dute (TermPage-k berrerabiltzen du).
 
-export const CIBERATAKETAK = [
+export const ZIBERATAKEAK = [
   {
     slug: 'stuxnet',
     number: 1,
@@ -12,7 +12,7 @@ export const CIBERATAKETAK = [
     definition:
       'Stuxnet 2010ean aurkitu zen malware-zizarea (worm) da, industria-kontrolerako sistemetan (SCADA) sartzeko diseinatua. Bere helburua ez zen datuak lapurtzea, makinak fisikoki kaltetzea baizik. Iranen Natanz uranio-aberastegiari eragin zion, eta AEBek eta Israelek egin zutela uste da, nahiz eta inork ez duen ofizialki aitortu.',
     steps: [
-      'Windows ordenagailu batean sartzen da, USB memoria batetik edo sare partekatu baten bidez. Aire-tarteko sistemetan ez da konektatuta dagoen ordenagailuetara iristen; hori dela eta, USBak izan ziren bidea.',
+      'Windows ordenagailu batean sartzen da, USB memoria batetik edo sare partekatu baten bidez. Sare isolatuetara iristeko, USB memoriak izan ziren bide nagusia.',
       'Lau zero-day ahulezia erabiltzen zituen (Windows-eko ahulezia ezezagunak), hedatzeko eta pribilegioak lortzeko.',
       'Siemens S7 PLC kontrolagailuak bilatzen zituen, eta bakarrik Natanzen zegoen konfigurazioarekin bat datorrenean aktibatzen zen.',
       'Zentrifugen biraketa-abiadura aldatzen zuen, kaltea eragiteko modu motelean, eta aldi berean operadoreei balio normalak erakusten zizkien.',
@@ -51,7 +51,7 @@ export const CIBERATAKETAK = [
     steps: [
       'Ordenagailu batean sartzen da SMBv1 protokoloaren ahulezia baten bidez (MS17-010, EternalBlue izenekoa), zeina NSAk ezagutzen zuen eta filtratu zen.',
       'Sare bereko beste ordenagailuak bilatzen ditu, eta ahulezia bera badute, kopia bat bidaltzen die.',
-      'Ordenagailu bakoitzean fitxategiak zifratzen ditu, eta pantaila batean ransom-mezua erakusten du, bitcoin-ak eskatuz.',
+      'Ordenagailu bakoitzean fitxategiak zifratzen ditu, eta pantaila batean erreskate-mezua erakusten du, bitcoin-ak eskatuz.',
       'Ikertzaile batek domeinu jakin bat erregistratu zuen, eta zizarea gelditu egin zen, hedapena mugatuz.',
     ],
     uses: [
@@ -78,4 +78,4 @@ export const CIBERATAKETAK = [
   },
 ]
 
-export const getCase = (slug) => CIBERATAKETAK.find((c) => c.slug === slug)
+export const getCase = (slug) => ZIBERATAKEAK.find((c) => c.slug === slug)
